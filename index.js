@@ -1,55 +1,73 @@
-var readlineSync = require('readline-sync');
+var readlineSync = require("readline-sync");
 
 var score = 0;
-var myName = readlineSync.question("What is my name?");
 
-if(myName == "Vanshika") {
-  console.log("You are right")
-  score = score+1;
-  console.log("Score is: " + score)
-}else {
-  console.log("You are wrong")
-  score = score-1;
-  console.log("Score is: " + score)
+var highScores = [
+  {
+    name: "Vansh",
+    score: 3,
+  },
+
+  {
+    name: "Bhavika",
+    score: 2,
+  },
+]
+
+var questions = [{
+  question: "Where do I live? ",
+  answer: "amravati"
+}, {
+  question: "My favorite dessert would be? ",
+  answer: "Hot chocolate"
+},
+{
+  question: "guess my favorite color? ",
+  answer: "black"
+}, {
+  question: "Who's my best friend? ",
+  answer: "Myself"
+}, {
+  question: "which college do I study? ",
+  answer: "VESIT,mumbai"
+}];
+
+function welcome() {
+ var userName = readlineSync.question("What's your name? ");
+
+  console.log("Welcome "+ userName + " to DO YOU KNOW Vanshika?");
 }
 
-var favmovie = readlineSync.question("What is Vanshika's favourite movie?");
 
-if(favmovie == "Dear zindagi") {
-  console.log("You are right")
-  score = score + 1;
-  console.log("Score is:" + score)
-}else {
-  console.log("You are wrong")
-  score = score-1;
-  console.log("Score is:" + score)
+function play(question, answer) {
+  var userAnswer = readlineSync.question(question);
+
+  if (userAnswer.toUpperCase() === answer.toUpperCase()) { 
+    console.log("right!");
+    score = score + 1;
+    
+  } else {
+    console.log("wrong!");
+   
+  }
+
+  console.log("current score: ", score);
 }
 
-var favchar = readlineSync.question("who is vanshika's favourite character from the movie");
-
-if(favchar == "alia bhatt") {
-  console.log("You are right")
-  score = score +1;
-  console.log("Score is:" + score)
-}else {
-  console.log("You are wrong")
-  score = score-1;
-  console.log("Score is:" + score)
+function game() {
+  for (var i=0; i<questions.length; i++) {
+    var currentQuestion = questions[i];
+    play(currentQuestion.question, currentQuestion.answer)
+  }
 }
 
-var malechar = readlineSync.question("who is the male actor in the movie");
+function showScores() {
+  console.log("YAYYY! You SCORED: ", score);
+  console.log("Recent high scores are:");
 
-if(malechar == "shahrukh khan") {
-  console.log("You are right")
-  score = score +1;
-  console.log("Score is:" + score)
-}else {
-  console.log("You are wrong")
-  score = score-1;
-  console.log("Score is:" + score)
+  highScores.map(score => console.log(score.name, " : ", score.score))
 }
 
-console.log(myName);
-console.log(favmovie);
-console.log(favchar);
-console.log(malechar);
+welcome();
+game();
+showScores();
