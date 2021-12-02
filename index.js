@@ -15,27 +15,27 @@ var highScores = [
 ]
 
 var questions = [{
-  question: "Where do I live? ",
-  answer: "amravati"
+  question: "2018 Best Movie? ",
+  answer: "Dear Zindagi"
 }, {
-  question: "My favorite dessert would be? ",
-  answer: "Hot chocolate"
+  question: "Male character in the movie? ",
+  answer: "Shahrukh khan"
 },
 {
-  question: "guess my favorite color? ",
-  answer: "black"
+  question: "Female character in the movie? ",
+  answer: "Alia bhatt"
 }, {
-  question: "Who's my best friend? ",
-  answer: "Myself"
+  question: "Best song in the movie",
+  answer: "Love you zindagi"
 }, {
-  question: "which college do I study? ",
-  answer: "VESIT,mumbai"
+  question: "Movie is about? ",
+  answer: "Loving your life"
 }];
 
 function welcome() {
  var userName = readlineSync.question("What's your name? ");
 
-  console.log("Welcome "+ userName + " to DO YOU KNOW Vanshika?");
+  console.log("Welcome "+ userName );
 }
 
 
